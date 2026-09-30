@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>github-profile-search</title>
+  </head>
+  <body class="bg-slate-900 min-h-screen text-white font-sans p-6 flex flex-col items-center">
+
+    <div class="w-full max-w-2xl mt-10">
+      <!-- search header -->
+
+      <header class=" flex justify-between items-center mb-8">
+        <h1 class="text-2xl font-bold tracking-tight">DevFinder</h1>
+      </header>
+
+      <!-- Search Box -->
+
+      <form id="search-form" class="bg-slate-800 rounded-xl p-2 flex items-center shadow-lg mb-6">
+        <svg class="w-6 h-6 text-blue-500 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <input 
+          type="text"
+          id="search-input"
+          placeholder="Search GitHub username..."
+          class="bg-transparent flex-1 p-3 ml-2 outline-none text-white placeholder-slate-400 focus:ring-0"
+          required
+        >
+
+        <button type="submit" class="bg-blue-600 hover:bg-blue-500 transition-colors px-6 py-3 rounded-lg font-semibold">
+          Search
+        </button>
+      </form>
+
+      <!-- Error Message -->
+       <div id="error-msg" class="hidden text-red-400 text-center mb-4 font-medium bg-red-400/10 py-3 rounded-lg border-red-400/20">
+        User not found. Try another username.
+       </div>
+       <!-- Profile Card -->
+
+       <main id="profile-card" class="bg-slate-800 rounded-xl p-8 shadow-lg hidden transition-all duration-300">
+        <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
+          <img src="" alt="User Avatar" id="avatar" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-slate-700 shadow-md">
+
+          <div class="flex-1 w-full">
+            <div class="flex flex-col sm:justify-between sm:items-center mb-2">
+              <h2 id="name" class="text-2xl font-bold"></h2>
+              <span id="date" class="text-slate-400 text-sm mt-1 sm:mt-0"></span>
+            </div>
+            <a href="" id="username" target="_blank" class="text-blue-500 hover:underline mb-4 inline-block"></a>
+
+            <p id="bio" class="text-slate-300 mb-6 leading-relaxed"></p>
+
+            <!-- stats grid -->
+
+            <div class="bg-slate-900 rounded-lg p-5 flex justify-between sm:grid sm:grid-cols-3 text-center sm:text-left shadow-inner">
+
+              <div class="flex flex-col gap-1">
+                <span class="text-xs text-slate-400 uppercase tracking-wider">Repos</span>
+                <span id="repos" class="font-bold text-xl sm:text-2xl"></span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-xs text-slate-400 uppercase tracking-wider">Followers</span>
+                <span id="followers" class="font-bold text-xl sm:text-2xl"></span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-xs text-slate-400 uppercase tracking-wider">Following</span>
+                <span id="following" class="font-bold text-xl sm:text-2xl"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+       </main>
+    </div>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
